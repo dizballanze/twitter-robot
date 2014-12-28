@@ -1,4 +1,4 @@
-# Simple Twitter Bot
+# Simple Twitter Fav Bot
 
 This is a framework for creating simple Twitter bots in node. It uses the
 straightforward [Twit](https://github.com/ttezel/twit) library to access
