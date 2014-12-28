@@ -12,25 +12,22 @@ var T = new Twit({
     access_token_secret: Config.access_token_secret
 });
 
-var stream = T.stream('statuses/filter', { track: Config.keywords });
+var stream = T.stream('statuses/filter', { track: Config.keywords.join(',') });
 stream.on('tweet', function (tweet) {
+    var now = new Date();
     if (Config.valid(tweet)) {
-        var response = Config.respond(tweet);
         if (!Config.debug) {
-            T.post('statuses/update', { status: response }, function (err, reply) {
+            T.post('favorites/create', { id: tweet.id_str }, function (err, reply) {
                 if (err) {
                     console.log(err);
                 } else {
-                    var now = new Date();
-                    console.log('[' + now.toJSON() + '] SENT: ' + response);
+                    console.log('[' + now.toJSON() + '] #' + tweet.id + ' is favorited');
                 }
             });
         } else {
-            var now = new Date();
-            console.log('[' + now.toJSON() + '] ' + response);
+            console.log('[' + now.toJSON() + '] #' + tweet.id + ' is favorited');
         }
     } else {
-        var now = new Date();
         console.log('[' + now.toJSON() + '] INVALID: @' + tweet.user.screen_name + ':' + tweet.text);
     }
 });
