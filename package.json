@@ -1,7 +1,7 @@
 {
-  "name": "simple-twitter-bot",
+  "name": "simple-twitter-fav-bot",
   "version": "0.1.0",
-  "description": "A simple framework for creating a Twitter bot.",
+  "description": "Simple twitter bot for favorited tweets with specified keywords.",
   "main": "bot.js",
   "dependencies": {
     "twit": "~1.1.9"
@@ -12,16 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:rfreebern/simple-twitter-bot.git"
+    "url": "git@github.com:dizballanze/simple-twitter-fav-bot.git"
   },
   "keywords": [
     "twitter",
     "twit",
     "bot"
   ],
-  "author": "Ryan N. Freebern",
+  "author": "Ryan N. Freebern, Yuri Shikanov",
   "license": "MPL2.0",
   "bugs": {
-    "url": "https://github.com/rfreebern/simple-twitter-bot/issues"
+    "url": "https://github.com/dizballanze/simple-twitter-fav-bot/issues"
   }
 }
