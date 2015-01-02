@@ -1,18 +1,20 @@
 module.exports = {
     debug: false,
 
-    consumer_key:         '',
-    consumer_secret:      '',
-    access_token:         '',
-    access_token_secret:  '',
+    accounts: [
+        {
+            name: 'example'
+            consumer_key: '',
+            consumer_secret: '',
+            access_token: '',
+            access_token_secret: '',
 
-    keywords: [],
+            keywords: [],
+            stopwords: [], // lowercase
 
-    valid: function (tweet) {
-        return true;
-    },
-
-    respond: function (tweet) {
-        return 'my response goes here';
-    }
+            valid: function (tweet) {
+                return true;
+            },
+        }
+    ]
 };
