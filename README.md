@@ -1,8 +1,11 @@
 # Simple Twitter Fav Bot
 
-This is a framework for creating simple Twitter bots in node. It uses the
-straightforward [Twit](https://github.com/ttezel/twit) library to access
-Twitter's streaming API.
+Simple twitter bot originally based on [rfreebern/simple-twitter-bot](https://github.com/rfreebern/simple-twitter-bot).
+Use twitter streams to watch for specified keywords and favorite tweets with them.
+Has several useful features:
+ -  Custom validation logic.
+ -  Multiple accounts support (with separated properties).
+ -  Stopwords lists.
 
 ## Usage
 
@@ -13,16 +16,12 @@ Twitter's streaming API.
 5. Put your tokens in `config.js`
 6. Put some keywords for your bot to follow in the `keywords` array in `config.js`
 7. Add whatever logic you want to the `valid` function in `config.js`
-8. `node bot.js > output.log &`
-
-## What Uses It
-
-* [@XsGonnaX](http://twitter.com/xsgonnax)
-* [@CoderShow](http://twitter.com/codershow)
-* [@boostrapghost](http://twitter.com/boostrapghost)
-* [@AskAndAnswerBot](http://twitter.com/askandanswerbot)
+8. `node bot.js > output.log &` or `forever start -o twi.out -l twi.log -e twi.err -a bot.js` (if you have forever installed)
 
 ## License
 
-To the extent possible under law, Ryan Freebern has waived all copyright and
-related or neighboring rights to this work. [CC0](http://creativecommons.org/publicdomain/zero/1.0/)
+The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+
+[CC0](http://creativecommons.org/publicdomain/zero/1.0/)
