@@ -1,4 +1,4 @@
-# Simple Twitter Fav Bot
+# Twitter Robot
 
 Simple twitter bot originally based on [rfreebern/simple-twitter-bot](https://github.com/rfreebern/simple-twitter-bot).
 Use twitter streams to watch for specified keywords and favorite tweets with them.

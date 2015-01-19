@@ -1,5 +1,5 @@
 {
-  "name": "simple-twitter-fav-bot",
+  "name": "twitter-robot",
   "version": "0.1.0",
   "description": "Simple twitter bot for favorited tweets with specified keywords.",
   "main": "bot.js",
@@ -22,6 +22,6 @@
   "author": "Ryan N. Freebern, Yuri Shikanov",
   "license": "MPL2.0",
   "bugs": {
-    "url": "https://github.com/dizballanze/simple-twitter-fav-bot/issues"
+    "url": "https://github.com/dizballanze/twitter-robot/issues"
   }
 }
