@@ -2,7 +2,7 @@
   "name": "twitter-robot",
   "version": "0.1.0",
   "description": "Simple twitter bot for favorited tweets with specified keywords.",
-  "main": "bot.js",
+  "main": "bin/bot",
   "dependencies": {
     "twit": "~1.1.9"
   },
@@ -20,7 +20,7 @@
     "bot"
   ],
   "author": "Yuri Shikanov",
-  "license": "MPL2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dizballanze/twitter-robot/issues"
   }
