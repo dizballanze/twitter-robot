@@ -1,11 +1,13 @@
 # Twitter Robot
 
-Simple twitter bot originally based on [rfreebern/simple-twitter-bot](https://github.com/rfreebern/simple-twitter-bot).
+Twitter bot originally based on [rfreebern/simple-twitter-bot](https://github.com/rfreebern/simple-twitter-bot).
 Use twitter streams to watch for specified keywords and favorite tweets with them.
 Has several useful features:
  -  Custom validation logic.
  -  Multiple accounts support (with separated properties).
  -  Stopwords lists.
+ -  Limitations by user who was favorited.
+ -  Unfavorite tweets in specified amount of time.
 
 ## Usage
 
