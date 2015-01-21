@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-CoffeeScript = require("coffee-script");
+CoffeeScript = require('coffee-script');
 CoffeeScript.register();
 
-var config = require("../app/config");
-var start_bot = require("../app/bot").start_bot;
+var config = require('../app/config');
+var start_bot = require('../app/bot').start_bot;
 start_bot(config);
