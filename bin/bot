@@ -2,6 +2,6 @@
 CoffeeScript = require("coffee-script");
 CoffeeScript.register();
 
-var config = require("../config");
-var start_bot = require("../bot").start_bot;
+var config = require("../app/config");
+var start_bot = require("../app/bot").start_bot;
 start_bot(config);
