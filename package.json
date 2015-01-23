@@ -4,6 +4,7 @@
   "description": "Simple twitter bot for favorited tweets with specified keywords.",
   "main": "bin/bot",
   "dependencies": {
+    "async": "^0.9.0",
     "coffee-script": "^1.8.0",
     "mongoose": "^3.8.21",
     "twit": "1.1.9"

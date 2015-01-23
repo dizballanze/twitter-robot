@@ -2,6 +2,12 @@
 CoffeeScript = require('coffee-script');
 CoffeeScript.register();
 
+var mongoose = require('mongoose')
 var config = require('../app/config');
 var start_bots = require('../app/app').start_bots;
-start_bots(config);
+mongoose.connect(config.db, function(err) {
+  if (err)
+    throw err
+  console.log('Database connection established.')
+  start_bots(config);
+});

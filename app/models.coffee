@@ -10,11 +10,15 @@ NoticedUserSchema = new Schema
     type: String
     required: yes
     index: yes
-    unique: yes
   noticed_at:
     type: Date
     default: Date.now
+  account:
+    type: String
+    required: yes
+    index: yes
 
+NoticedUserSchema.index {username: 1, account: 1}, {unique: yes}
 NoticedUserSchema.set 'autoIndex', yes
 NoticedUser = mongoose.model "NoticedUser", NoticedUserSchema
 exports.NoticedUser = NoticedUser
@@ -28,7 +32,6 @@ FavoriteTweetSchema = new Schema
     type: String
     required: yes
     index: yes
-    unique: yes
   created_at:
     type: Date
     default: Date.now
@@ -36,7 +39,12 @@ FavoriteTweetSchema = new Schema
   is_removed:
     type: Boolean
     default: no
+  account:
+    type: String
+    required: yes
+    index: yes
 
+FavoriteTweetSchema.index {identifier: 1, account: 1}, {unique: yes}
 FavoriteTweetSchema.set 'autoIndex', yes
 FavoriteTweet = mongoose.model "FavoriteTweet", FavoriteTweetSchema
 exports.FavoriteTweet = FavoriteTweet

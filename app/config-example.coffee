@@ -2,6 +2,7 @@ Bot = require('bot').Bot
 
 module.exports =
   debug: false
+  db: 'mongodb://localhost:27017/twibot'
   accounts: [
     bot_class: Bot
     name: 'example'
