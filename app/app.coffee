@@ -1,4 +1,4 @@
-Twit = require('twit')
+Twit = require 'twit'
 Bot = require('./bot').Bot
 
 
