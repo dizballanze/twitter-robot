@@ -11,19 +11,27 @@ Has several useful features:
 
 ## Usage
 
-1. `git clone https://github.com/rfreebern/simple-twitter-bot.git && cd simple-twitter-bot && npm install`
+1. `git clone https://github.com/dizballanze/twitter-robot.git && cd twitter-robot && npm install`
 2. Create an application on http://dev.twitter.com
 3. Generate the necessary tokens.
-4. Copy `config.js-dist` to `config.js`
-5. Put your tokens in `config.js`
-6. Put some keywords for your bot to follow in the `keywords` array in `config.js`
-7. Add whatever logic you want to the `valid` function in `config.js`
-8. `node bot.js > output.log &` or `forever start -o twi.out -l twi.log -e twi.err -a bot.js` (if you have forever installed)
+4. Copy `app/config-example.coffee` to `app/config.coffee`
+5. Put your tokens in `app/config.coffee`
+6. Put some keywords for your bot to follow in the `keywords` array in `app/config.coffee`
+7. Put some stopwords for your bot to filter in the `stopwords` array in `app/config.coffee`
+8. `bin/bot > output.log &` or `forever start -o twi.out -l twi.log -e twi.err -a bin/bot` (if you have forever installed)
+9. To customize bot logic you can override default `Bot` class and specify it as `bot_class` in `app/config.coffee`
+
+OR to use twitter-bot on local machine:
+
+```
+vagrant up
+vagrant ssh
+```
+
+(you should have installed vagrant, ansible and virtualbox)
 
 ## License
 
-The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+The MIT License (MIT)
 
-You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
-
-[CC0](http://creativecommons.org/publicdomain/zero/1.0/)
+Copyright (c) 2015 Yuri Shikanov
