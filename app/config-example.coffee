@@ -8,6 +8,7 @@ module.exports =
     name: 'example'
     keywords: []
     stopwords: []
+    unfavorite_interval: [10, 'hours']
     # Twitter app credentials https://apps.twitter.com/app/new
     consumer_key: ''
     consumer_secret: ''

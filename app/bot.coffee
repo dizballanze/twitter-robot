@@ -35,7 +35,7 @@ class Bot
         user.save callback
 
       (callback)=>
-        fav = new FavoriteTweet identifier: tweet.id, account: @name
+        fav = new FavoriteTweet identifier: tweet.id_str, account: @name
         fav.save callback
     ], (err)->
       return cb err if cb

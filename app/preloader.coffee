@@ -11,7 +11,7 @@ FavoriteTweet = models.FavoriteTweet
 
 
 exports = module.exports = (config)->
-  config.accounts.forEach (acc)->
+  async.each config.accounts, (acc, finish)->
     account = acc.name
     # Create connection to twitter API
     T = new Twit
@@ -49,7 +49,7 @@ exports = module.exports = (config)->
 
             (cb)->
               fav = new FavoriteTweet
-                identifier: tweet.id
+                identifier: tweet.id_str
                 created_at: date
                 is_remove: tweet.favorited
                 account: account
@@ -61,7 +61,7 @@ exports = module.exports = (config)->
           if tweets.length == 1
             last_id = null
           else
-            last_id = tweets[tweets.length-1].id
+            last_id = tweets[tweets.length-1].id_str
           return complete_cb err, last_id if complete_cb
           throw err if err
 
@@ -80,8 +80,12 @@ exports = module.exports = (config)->
         # if no tweet in last request
         if not last_id
           console.log "Done. For account #{account}"
+          finish()
         else
           process last_id, complete_cb
 
     # Star recursive sycle
     process null, complete_cb
+
+  , ->
+    process.exit()
