@@ -30,6 +30,17 @@ vagrant ssh
 
 (you should have installed vagrant, ansible and virtualbox)
 
+## Automatic unfavorite
+
+For enable automatic unfavorite:
+
+ -  Specify `unfavorite_interval` option of account in `app/config.coffee`.
+ -  Add `bin/unfavorite` to crontab.
+
+## Preloading tweets and noticed accounts
+
+If you want to preload existed tweets and accounts to database you could use `bin/preloader`.
+
 ## License
 
 The MIT License (MIT)
