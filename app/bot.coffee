@@ -39,7 +39,7 @@ class Bot
         fav.save callback
     ], (err)->
       return cb err if cb
-      throw err if err
+      throw err if err and err.code != 11000  # ignore duplicate key errors
 
   get_keywords: ()->
     return @keywords
