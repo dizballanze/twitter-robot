@@ -26,7 +26,6 @@ class DaytimeBot extends Bot
       moment().startOf('day').add(@daytime_start...)
       moment().startOf('day').add(@daytime_end...)]
     if not moment().isBetween(date_range...)
-      console.log "ignore cause of daytime limit"
       return cb null, no
     super tweet, cb
 
