@@ -8,6 +8,7 @@ Has several useful features:
  -  Stopwords lists.
  -  Limitations by user who was favorited.
  -  Unfavorite tweets in specified amount of time.
+ -  Limit bot by day time (see [bot_daytime.coffee](./app/bot_daytime.coffee))
 
 ## Usage
 
