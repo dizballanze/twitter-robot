@@ -39,6 +39,8 @@ class Bot
         fav.save callback
     ], (err)->
       return cb err if cb
+      if err and err.code == 11000
+        console.log "duplicate key error"
       throw err if err and err.code != 11000  # ignore duplicate key errors
 
   get_keywords: ()->
