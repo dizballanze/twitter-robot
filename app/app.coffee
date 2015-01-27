@@ -42,6 +42,7 @@ exports.start_bots = (Config)->
               id: tweet.id_str
             , (err, reply) ->
               if err
+                console conf.name, err
                 console.log conf.name, err  unless err.statusCode is 429  # Ignore errors about reached limits
                 task.done()
               else
