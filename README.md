@@ -6,10 +6,11 @@ Has several useful features:
  -  Custom validation logic.
  -  Multiple accounts support (with separated properties).
  -  Stopwords lists.
- -  Limitations by user who was favorited.
+ -  Limitations by user who was favorited (and users mentioned in favorited tweet).
  -  Unfavorite tweets in specified amount of time.
  -  Limit bot by day time (see [bot_daytime.coffee](./app/bot_daytime.coffee)).
- =  Filter by tweet language.
+ -  Filter by tweet language.
+ -  Filter retweets.
 
 ## Usage
 

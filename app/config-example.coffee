@@ -9,6 +9,7 @@ module.exports =
     keywords: []
     langs: []
     stopwords: []
+    filter_retweets: yes
     unfavorite_interval: [10, 'hours']
     # Twitter app credentials https://apps.twitter.com/app/new
     consumer_key: ''

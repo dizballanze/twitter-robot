@@ -14,8 +14,12 @@ class Bot
     @keywords = config.keywords or []
     @stopwords = config.stopwords or []
     @langs = config.langs or []
+    @filter_retweets = config.filter_retweets
 
   is_valid: (tweet, cb)->
+    # check retweet
+    if @filter_retweets and tweet.retweeted_status?
+      return cb null, no, "retweet"
     # check stopwords
     if @_has_stopwords tweet.text
       return cb null, no, "stopword"
