@@ -24,6 +24,7 @@ exports.start_bots = (Config)->
       # Connect to tweets stream
       stream = T.stream 'statuses/filter', track: bot.get_keywords().join(',')
       stream.on 'tweet', (tweet) ->
+        # console.log tweet
         queue.push (task)->
           now = new Date()
           # Validate tweet
@@ -32,12 +33,10 @@ exports.start_bots = (Config)->
             # If tweet is not valid
             unless is_valid
               task.done()
-              console.log tweet.lang, tweet.user.lang
               return console.log "[#{now.toJSON()}][##{conf.name}] INVALID: #{reason} @#{tweet.user.screen_name} : #{tweet.text}"
             # Just write message to console if debug mode is on
             if Config.debug
               task.done()
-              console.log tweet.lang, tweet.user.lang
               return console.log "[#{now.toJSON()}] ##{tweet.id} is favorited by #{conf.name}"
             # Actually process tweet
             T.post 'favorites/create',

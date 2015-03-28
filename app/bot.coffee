@@ -27,9 +27,10 @@ class Bot
         lang = tweet.lang
       if lang not in @langs
         return cb null, no, "lang"
+
     # check if user already noticed
     NoticedUser.findOne 
-      username: tweet.user.screen_name
+      username: {"in": @_get_users_names(tweet)}
       account: @name
     , (err, user)->
       cb err, not user?, "user"
@@ -40,8 +41,14 @@ class Bot
     ###
     async.parallel [
       (callback)=>
-        user = new NoticedUser username: tweet.user.screen_name, account: @name
-        user.save callback
+        async.forEach @_get_users_names(tweet), (mention, cb)=>
+          user = NoticedUser username: mention.screen_name, account: @name
+          user.save (err)->
+            if err and err.code == 11000
+              console.log "duplicate key error"
+              cb null
+            cb err
+        , callback
 
       (callback)=>
         fav = new FavoriteTweet identifier: tweet.id_str, account: @name
@@ -61,5 +68,11 @@ class Bot
     for i of @stopwords
       return true  unless lower_text.indexOf(@stopwords[i]) is -1
     false
+
+  _get_users_names: (tweet)->
+    users_names = [tweet.user.screen_name]
+    for mention in tweet.entities.user_mentions
+      users_names.push mention.screen_name
+    return users_names
 
 exports.Bot = Bot
