@@ -11,6 +11,7 @@ Has several useful features:
  -  Limit bot by day time (see [bot_daytime.coffee](./app/bot_daytime.coffee)).
  -  Filter by tweet language.
  -  Filter retweets.
+ -  User twitter `filter_level`.
 
 ## Usage
 

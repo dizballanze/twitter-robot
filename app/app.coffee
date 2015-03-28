@@ -21,10 +21,15 @@ exports.start_bots = (Config)->
         access_token: conf.access_token
         access_token_secret: conf.access_token_secret
 
+      # Twitter filter_level
+      if conf.filter_level in ['none', 'low', 'medium']
+        filter_level = conf.filter_level
+      else
+        filter_level = 'none'
       # Connect to tweets stream
-      stream = T.stream 'statuses/filter', track: bot.get_keywords().join(',')
+      stream = T.stream 'statuses/filter', {track: bot.get_keywords().join(','), filter_level: filter_level}
       stream.on 'tweet', (tweet) ->
-        # console.log tweet
+        console.log tweet.filter_level
         queue.push (task)->
           now = new Date()
           # Validate tweet

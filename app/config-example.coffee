@@ -10,6 +10,7 @@ module.exports =
     langs: []
     stopwords: []
     filter_retweets: yes
+    filter_level: 'low'
     unfavorite_interval: [10, 'hours']
     # Twitter app credentials https://apps.twitter.com/app/new
     consumer_key: ''
