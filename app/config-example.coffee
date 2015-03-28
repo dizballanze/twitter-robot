@@ -7,6 +7,7 @@ module.exports =
     bot_class: Bot
     name: 'example'
     keywords: []
+    langs: []
     stopwords: []
     unfavorite_interval: [10, 'hours']
     # Twitter app credentials https://apps.twitter.com/app/new

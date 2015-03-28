@@ -11,19 +11,28 @@ class Bot
 
   constructor: (config)->
     @name = config.name
-    @keywords = config.keywords
-    @stopwords = config.stopwords
+    @keywords = config.keywords or []
+    @stopwords = config.stopwords or []
+    @langs = config.langs or []
 
   is_valid: (tweet, cb)->
     # check stopwords
     if @_has_stopwords tweet.text
-      return cb null, no
+      return cb null, no, "stopword"
+    # check language
+    if @langs
+      if tweet.lang == 'und'
+        lang = tweet.user.lang
+      else
+        lang = tweet.lang
+      if lang not in @langs
+        return cb null, no, "lang"
     # check if user already noticed
     NoticedUser.findOne 
       username: tweet.user.screen_name
       account: @name
     , (err, user)->
-      cb err, not user?
+      cb err, not user?, "user"
 
   process: (tweet, cb)->
     ###

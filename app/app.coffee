@@ -27,15 +27,17 @@ exports.start_bots = (Config)->
         queue.push (task)->
           now = new Date()
           # Validate tweet
-          bot.is_valid tweet, (err, is_valid)->
+          bot.is_valid tweet, (err, is_valid, reason)->
             throw err if err
             # If tweet is not valid
             unless is_valid
               task.done()
-              return console.log "[#{now.toJSON()}][##{conf.name}] INVALID: @#{tweet.user.screen_name} : #{tweet.text}"
+              console.log tweet.lang, tweet.user.lang
+              return console.log "[#{now.toJSON()}][##{conf.name}] INVALID: #{reason} @#{tweet.user.screen_name} : #{tweet.text}"
             # Just write message to console if debug mode is on
             if Config.debug
               task.done()
+              console.log tweet.lang, tweet.user.lang
               return console.log "[#{now.toJSON()}] ##{tweet.id} is favorited by #{conf.name}"
             # Actually process tweet
             T.post 'favorites/create',

@@ -26,7 +26,7 @@ class DaytimeBot extends Bot
       moment().startOf('day').add(@daytime_start...)
       moment().startOf('day').add(@daytime_end...)]
     if not moment().isBetween(date_range...)
-      return cb null, no
+      return cb null, no, "daytime"
     super tweet, cb
 
 
