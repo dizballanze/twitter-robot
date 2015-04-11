@@ -46,7 +46,7 @@ class Bot
     async.parallel [
       (callback)=>
         async.forEach @_get_users_names(tweet), (mention, cb)=>
-          user = NoticedUser username: mention.screen_name, account: @name
+          user = NoticedUser username: mention, account: @name
           user.save (err)->
             if err and err.code == 11000
               console.log "duplicate key error"
