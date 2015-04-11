@@ -29,7 +29,6 @@ exports.start_bots = (Config)->
       # Connect to tweets stream
       stream = T.stream 'statuses/filter', {track: bot.get_keywords().join(','), filter_level: filter_level}
       stream.on 'tweet', (tweet) ->
-        console.log tweet.filter_level
         queue.push (task)->
           now = new Date()
           # Validate tweet
