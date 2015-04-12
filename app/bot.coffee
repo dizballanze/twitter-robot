@@ -51,7 +51,8 @@ class Bot
             if err and err.code == 11000
               console.log "duplicate key error"
               cb null
-            cb err
+            else
+              cb err
         , callback
 
       (callback)=>
